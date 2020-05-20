@@ -1,0 +1,69 @@
+<mat-card fxHide.gt-sm>
+  <mat-card-title>Covid-19 Tracker</mat-card-title>
+  <mat-card-content>
+    <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="left">
+      <hr style="width: 100%;" />
+      <section class="Confirmed">
+        Confirmed Cases :{{ totalconforimed }}
+      </section>
+      <hr style="width: 100%;" />
+      <section class="Active">Active Cases:{{ totalactive }}</section>
+      <hr style="width: 100%;" />
+      <section class="Recovered">Total Recovered:{{ totalrecovered }}</section>
+      <hr style="width: 100%;" />
+      <section class="Deaths">Total Deaths:{{ totaldeaths }}</section>
+      <hr style="width: 100%;" />
+    </div>
+  </mat-card-content>
+</mat-card>
+<div fxHide.lt-sm fxLayout fxLayoutAlign="center">
+<section class="section">
+  <mat-card class="Confirmed">
+    <mat-card-title> Total Confirmed Cases</mat-card-title>
+    <mat-card-content >Confirmed Cases:{{totalconforimed}}</mat-card-content>
+    </mat-card>
+</section>
+<section class="section">
+  <mat-card class="Active">
+    <mat-card-title> Total Active Cases</mat-card-title>
+    <mat-card-content >Active Cases:{{totalactive}}</mat-card-content>
+    </mat-card>
+</section>
+<section class="section">
+  <mat-card class="Recovered">
+    <mat-card-title> Total Recovered </mat-card-title>
+    <mat-card-content >Recovered Cases:{{totalrecovered}}</mat-card-content>
+    </mat-card>
+</section>
+<section class="section">
+  <mat-card class="Deaths">
+    <mat-card-title> Total Deaths </mat-card-title>
+    <mat-card-content > Deaths:{{totaldeaths}}</mat-card-content>
+    </mat-card>
+</section>
+</div>
+<div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
+  <h1 class="Heading">Countries & Cases</h1>
+</div>
+<div fxLayout.lt-sm="column" fxLayoutGap.gt-sm="300px" fxLayoutGap.lt-sm="30px" fxLayoutAlign="center center">
+  <google-chart
+    #chart
+    [title]="title"
+    [type]="type"
+    [data]="piedata"
+    [options]="options"
+    [width]="width"
+    [height]="height"
+  >
+  </google-chart>
+  <google-chart
+    #chart
+    [title]="title"
+    [type]="bartype"
+    [data]="piedata"
+    [options]="options"
+    [width]="width"
+    [height]="height"
+  >
+  </google-chart>
+</div>

@@ -1,0 +1,67 @@
+<div fxLayout='column' fxLayoutGap="30px">
+<section>
+  <form (ngSubmit)="update(f)" #f="ngForm">
+    <mat-card>
+      <mat-card-title>Select Country</mat-card-title>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>Select the country </mat-label>
+          <mat-select ngModel name="country">
+            <mat-option value="{{ con }}" *ngFor="let con of contries">
+              {{ con }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">
+            Result
+          </button></mat-card-actions
+        >
+      </mat-card-content>
+    </mat-card>
+  </form>
+</section>
+<section fxHide.gt-sm>
+<mat-card>
+  <mat-card-content >
+    <hr style="width: 100%;" />
+    <section class="Confirmed">Confirmed Cases :{{ totalconforimed }}</section>
+    <hr style="width: 100%;" />
+    <section class="Active">Active Cases:{{ totalactive }}</section>
+    <hr style="width: 100%;" />
+    <section class="Recovered">Total Recovered:{{ totalrecovered }}</section>
+    <hr style="width: 100%;" />
+    <section class="Deaths">Total Deaths:{{ totaldeaths }}</section>
+    <hr style="width: 100%;" />
+  </mat-card-content>
+</mat-card>
+</section>
+<section>
+<div fxHide.lt-sm fxLayout fxLayoutAlign="center" fxLayoutGap="20px">
+  <section class="section">
+    <mat-card class="Confirmed">
+      <mat-card-title> Total Confirmed Cases</mat-card-title>
+      <mat-card-content>Confirmed Cases:{{ totalconforimed }}</mat-card-content>
+    </mat-card>
+  </section>
+  <section class="section">
+    <mat-card class="Active">
+      <mat-card-title> Total Active Cases</mat-card-title>
+      <mat-card-content>Active Cases:{{ totalactive }}</mat-card-content>
+    </mat-card>
+  </section>
+  <section class="section">
+    <mat-card class="Recovered">
+      <mat-card-title> Total Recovered </mat-card-title>
+      <mat-card-content>Recovered Cases:{{ totalrecovered }}</mat-card-content>
+    </mat-card>
+  </section>
+  <section class="section">
+    <mat-card class="Deaths">
+      <mat-card-title> Total Deaths </mat-card-title>
+      <mat-card-content> Deaths:{{ totaldeaths }}</mat-card-content>
+    </mat-card>
+  </section>
+</div>
+</section>
+</div>

@@ -82,6 +82,7 @@ export class CountriesComponent implements OnInit {
 
   public lineChartData: ChartDataSets[] = [
     { data: [], label: '' },
+
   ];
   public lineChartLabels: Label[] = []
   public lineChartOptions = {
@@ -90,7 +91,7 @@ export class CountriesComponent implements OnInit {
   public lineChartColors: Color[] = [
     {
       borderColor: 'black',
-      backgroundColor: 'rgba(255,0,0,0.3)',
+      backgroundColor: 'rgb(247, 9, 149 )',
     },
   ];
   public lineChartLegend = true;

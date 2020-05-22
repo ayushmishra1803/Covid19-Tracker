@@ -1,7 +1,7 @@
 import { AngularmaterailModule } from './modules/material/angularmaterail/angularmaterail.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,7 +36,8 @@ import { DatePipe } from '@angular/common';
     HttpClientModule,
     GoogleChartsModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule
+    FormsModule,
+    ChartsModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

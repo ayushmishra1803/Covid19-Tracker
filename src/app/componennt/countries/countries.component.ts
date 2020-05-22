@@ -3,7 +3,8 @@ import { DataService } from './../../service/dataservice/data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-
+import { ChartOptions, ChartDataSets } from 'chart.js';
+import { Label, Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-countries',
@@ -29,7 +30,7 @@ export class CountriesComponent implements OnInit {
     this.data.getdatewisedata().subscribe((re) => {
       this.datewisedata = re;
       console.log(re);
-this.udpdateChart();
+      this.udpdateChart();
       console.log(this.datewisedata);
     });
 
@@ -64,12 +65,35 @@ this.udpdateChart();
   }
   udpdateChart() {
     let datatable = [];
-    datatable.push(['cases', 'date']);
+    let datalabe=[];
     this.selectedcountry.forEach((element) => {
-      datatable.push([element.cases, element.date]);
+      datatable.push(element.case);
+      datalabe.push(this.datepipe.transform(element.date,"dd/MM/yyy"));
+      console.log(datatable);
+
+      this.lineChartData=[{
+        data:[...datatable],
+        label:'Cases'
+      }]
+  this.lineChartLabels = [...datalabe];
     });
-    this.chartdata=datatable;
+
   }
 
-
+  public lineChartData: ChartDataSets[] = [
+    { data: [], label: '' },
+  ];
+  public lineChartLabels: Label[] = []
+  public lineChartOptions = {
+    responsive: true,
+  };
+  public lineChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: 'rgba(255,0,0,0.3)',
+    },
+  ];
+  public lineChartLegend = true;
+  public lineChartType = 'line';
+  public lineChartPlugins = [];
 }

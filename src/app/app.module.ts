@@ -17,6 +17,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { ZoneComponent } from './componennt/zone/zone.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { DatePipe } from '@angular/common';
     CountriesComponent,
     WorldComponent,
     AboutComponent,
+    ZoneComponent,
   ],
   imports: [
     BrowserModule,

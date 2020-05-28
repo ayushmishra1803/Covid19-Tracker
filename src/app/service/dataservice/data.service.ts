@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
   private GlobalUrl =
-    'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/05-26-2020.csv';
+    'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/05-27-2020.csv';
   private datewisedata =
     'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv';
   constructor(private http: HttpClient) {}

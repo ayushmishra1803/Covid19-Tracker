@@ -1,3 +1,4 @@
+import { Zoneinterface } from './../../interface/zoneinterface';
 import { Datwisedata } from './../../interface/globaldata/datwisedata';
 import { Globaldata } from './../../interface/globaldata/globaldata';
 import { Injectable } from '@angular/core';
@@ -11,6 +12,8 @@ export class DataService {
     'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/05-28-2020.csv';
   private datewisedata =
     'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv';
+  private zoneurl =
+    'https://raw.githubusercontent.com/datameet/covid19/master/data/district-containment-zones-2020-04-30.csv';
   constructor(private http: HttpClient) {}
   getglobaldata() {
     return this.http.get(this.GlobalUrl, { responseType: 'text' }).pipe(
@@ -76,6 +79,30 @@ export class DataService {
         });
 
         return main;
+      })
+    );
+  }
+  Zonegetdata() {
+    return this.http.get(this.zoneurl, { responseType: 'text' }).pipe(
+      map((re) => {
+        let data: Zoneinterface[] = [];
+
+        let rows = re.split('\n');
+        rows.splice(0, 1);
+        rows.forEach((re) => {
+          let cols = re.split(',');
+          data.push({
+            DistrictID: cols[0],
+            DistrictName: cols[1],
+            State: cols[2],
+            Classification: cols[3],
+          });
+        });
+        //console.log(data);
+
+        // console.log(rows);
+
+        return data;
       })
     );
   }

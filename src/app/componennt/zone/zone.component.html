@@ -1,38 +1,52 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
-<form (ngSubmit)="update(f)" #f="ngForm">
-    <ng-template matStepLabel>Choose  Your State </ng-template>
-  <mat-form-field>
-    <mat-label>Select ditrict</mat-label>
-    <mat-select ngModel name="state" >
-      <mat-option *ngFor="let data of state" value="{{data}}">
-        {{ data}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field><br><br>
-  <button mat-raised-button color="primary" matStepperNext type="submit">Choose</button>
-</form>
+    <form (ngSubmit)="update(f)" #f="ngForm">
+      <ng-template matStepLabel>Choose Your State </ng-template>
+      <mat-form-field>
+        <mat-label>Choose Your State</mat-label>
+        <mat-select ngModel name="state">
+          <mat-option *ngFor="let data of state" value="{{ data }}">
+            {{ data }}
+          </mat-option>
+        </mat-select> </mat-form-field
+      ><br /><br />
+      <button mat-raised-button color="primary" matStepperNext type="submit">
+        Next
+      </button>
+    </form>
   </mat-step>
-<mat-step [stepControl]="secondFormGroup">
-<form (ngSubmit)="getZone(Z)" #Z="ngForm">
-  <ng-template matStepLabel>Choose City </ng-template>
-  <mat-form-field>
-    <mat-label>Select ditrict</mat-label>
-    <mat-select ngModel name="dic">
-      <mat-option *ngFor="let data of zone" value="{{data }}">
-        {{ data}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field><br><br>
-   <button mat-button matStepperPrevious>Back</button>
-  <button mat-raised-button color="primary" matStepperNext type="submit">CLICK</button>
-</form>
+  <mat-step [stepControl]="secondFormGroup">
+    <form (ngSubmit)="getZone(Z)" #Z="ngForm">
+      <ng-template matStepLabel>Choose your City </ng-template>
+      <mat-form-field>
+        <mat-label>Choose your City</mat-label>
+        <mat-select ngModel name="dic">
+          <mat-option *ngFor="let data of zone" value="{{ data }}">
+            {{ data }}
+          </mat-option>
+        </mat-select> </mat-form-field
+      ><br /><br />
+      <button mat-button matStepperPrevious>Change State</button>
+      <button mat-raised-button color="primary" matStepperNext type="submit">
+        CLICK
+      </button>
+    </form>
   </mat-step>
-<mat-step>
-  <ng-template matStepLabel>Your City is  in {{diczone}}</ng-template>
-  <div class="dic" fxflex fxLayoutAlign="center">
-    <h1><br> <br>
-     Your city is in
-{{diczone}}</h1>
-</div></mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Your City is in {{ diczone }}</ng-template>
+    <div class="dic" fxflex fxLayoutAlign="center">
+      <h1>
+        <br />
+        <br />
+        Your city is in
+        {{ diczone }}
+      </h1>
+      <br />
+    </div>
+    <div fxFlex fxLayoutAlign="center">
+      <button mat-raised-button color="warn" matStepperPrevious>
+        Check Another City
+      </button>
+    </div></mat-step
+  >
 </mat-horizontal-stepper>

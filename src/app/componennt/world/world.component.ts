@@ -1,11 +1,20 @@
 import { Globaldata } from './../../interface/globaldata/globaldata';
 import { DataService } from './../../service/dataservice/data.service';
 import { Component, OnInit } from '@angular/core';
+import { trigger, style, state, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-world',
   templateUrl: './world.component.html',
   styleUrls: ['./world.component.scss'],
+  animations:[
+    trigger('fade',[
+      state('void',style({opacity:0})),
+      transition('void <=> *',[
+        animate(2000)
+      ])
+    ])
+  ]
 })
 export class WorldComponent implements OnInit {
   constructor(private data: DataService) {}

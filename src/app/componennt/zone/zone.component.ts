@@ -9,7 +9,7 @@ import { FormGroup, NgForm } from '@angular/forms';
   styleUrls: ['./zone.component.scss'],
 })
 export class ZoneComponent implements OnInit {
-  constructor(private data:DataService) {}
+  constructor(private data: DataService) {}
 
   datarray: Zoneinterface[] = [];
   isLinear = false;

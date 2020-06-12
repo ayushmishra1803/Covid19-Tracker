@@ -91,7 +91,7 @@ export class CountriesComponent implements OnInit {
   public lineChartColors: Color[] = [
     {
       borderColor: 'black',
-      backgroundColor: 'rgb(247, 9, 149 )',
+      backgroundColor: 'blue',
     },
   ];
   public lineChartLegend = true;
